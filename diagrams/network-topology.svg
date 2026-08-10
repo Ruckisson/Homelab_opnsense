@@ -1,0 +1,56 @@
+<svg width="680" height="630" viewBox="0 0 680 630" xmlns="http://www.w3.org/2000/svg" font-family="Arial, Helvetica, sans-serif">
+<title>Cybersecurity Homelab Network Topology</title>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="#333" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect width="680" height="630" fill="#2b2b2b"/>
+
+<!-- Internet -->
+<rect x="290" y="40" width="100" height="40" rx="8" fill="#888888" stroke="#333" stroke-width="1"/>
+<text x="340" y="65" text-anchor="middle" font-size="16" font-weight="bold" fill="#111">Internet</text>
+<line x1="340" y1="80" x2="340" y2="118" stroke="#eee" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- WAN container -->
+<rect x="170" y="120" width="340" height="110" rx="14" fill="none" stroke="#999" stroke-width="2" stroke-dasharray="6,4"/>
+<text x="190" y="143" font-size="16" font-weight="bold" fill="#eee">VMnet8 — WAN</text>
+<text x="190" y="161" font-size="12" fill="#ccc">NAT, 192.168.23.0/24</text>
+<rect x="240" y="175" width="200" height="40" rx="8" fill="#5b8def" stroke="#333"/>
+<text x="340" y="193" text-anchor="middle" font-size="14" font-weight="bold" fill="#111">OPNsense em0</text>
+<text x="340" y="209" text-anchor="middle" font-size="11" fill="#111">WAN uplink</text>
+<line x1="340" y1="230" x2="340" y2="248" stroke="#eee" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- OPNsense core -->
+<rect x="190" y="250" width="300" height="130" rx="10" fill="#f0954d" stroke="#333" stroke-width="1.5"/>
+<text x="340" y="274" text-anchor="middle" font-size="18" font-weight="bold" fill="#111">OPNsense-FW</text>
+<text x="210" y="298" font-size="13" fill="#111">em0 → WAN (VMnet8)</text>
+<text x="210" y="318" font-size="13" fill="#111">em1 → LAN 10.10.10.1/24</text>
+<text x="210" y="338" font-size="13" fill="#111">em2 → TARGET 10.10.20.1/24</text>
+
+<path d="M340 380 L340 396 L190 396 L190 408" fill="none" stroke="#eee" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M340 380 L340 396 L490 396 L490 408" fill="none" stroke="#eee" stroke-width="2" marker-end="url(#arrow)"/>
+
+<!-- LAN / Attack -->
+<rect x="60" y="410" width="260" height="180" rx="14" fill="#e8677a" fill-opacity="0.25" stroke="#e8677a" stroke-width="2"/>
+<text x="80" y="433" font-size="16" font-weight="bold" fill="#f2a6b2">VMnet2 — LAN / Attack</text>
+<text x="80" y="451" font-size="12" fill="#f2a6b2">10.10.10.0/24</text>
+<rect x="90" y="465" width="200" height="50" rx="8" fill="#8a5cf6" stroke="#333"/>
+<text x="190" y="486" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">Kali Linux</text>
+<text x="190" y="504" text-anchor="middle" font-size="12" fill="#fff">10.10.10.10</text>
+<rect x="90" y="525" width="200" height="50" rx="8" fill="#999" stroke="#333"/>
+<text x="190" y="546" text-anchor="middle" font-size="14" font-weight="bold" fill="#111">Host adapter</text>
+<text x="190" y="563" text-anchor="middle" font-size="11" fill="#111">10.10.10.254 (was .1)</text>
+
+<!-- TARGET -->
+<rect x="360" y="410" width="260" height="180" rx="14" fill="#8a5cf6" fill-opacity="0.25" stroke="#8a5cf6" stroke-width="2"/>
+<text x="380" y="433" font-size="16" font-weight="bold" fill="#c4a9fb">VMnet3 — Target</text>
+<text x="380" y="451" font-size="12" fill="#c4a9fb">10.10.20.0/24</text>
+<rect x="390" y="465" width="200" height="50" rx="8" fill="#e04fb0" stroke="#333"/>
+<text x="490" y="486" text-anchor="middle" font-size="15" font-weight="bold" fill="#fff">Metasploitable2</text>
+<text x="490" y="504" text-anchor="middle" font-size="12" fill="#fff">10.10.20.50</text>
+<rect x="390" y="525" width="200" height="50" rx="8" fill="#999" stroke="#333"/>
+<text x="490" y="546" text-anchor="middle" font-size="14" font-weight="bold" fill="#111">Host adapter</text>
+<text x="490" y="563" text-anchor="middle" font-size="11" fill="#111">10.10.20.254 (was .1)</text>
+</svg>
